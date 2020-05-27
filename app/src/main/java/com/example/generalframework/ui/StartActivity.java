@@ -13,11 +13,14 @@ public class StartActivity extends BaseActivity {
     @BindView(R.id.view)
     View view;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_start);
 
+    @Override
+    public int getLayoutId() {
+        return R.layout.activity_start;
+    }
+
+    @Override
+    public void initView() {
         initImmersionBar(view);
 
         new Handler().postDelayed(new Runnable() {

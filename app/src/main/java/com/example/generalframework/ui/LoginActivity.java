@@ -20,11 +20,8 @@ public class LoginActivity extends BaseActivity {
     EditText et_pwd;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
-
-        initImmersionBar(view);
+    public int getLayoutId() {
+        return R.layout.activity_login;
     }
 
     @OnClick(R.id.btn_login)
@@ -43,4 +40,8 @@ public class LoginActivity extends BaseActivity {
         }
     }
 
+    @Override
+    public void initView() {
+        initImmersionBar(view);
+    }
 }

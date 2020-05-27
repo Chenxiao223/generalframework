@@ -28,15 +28,12 @@ public class HomeActivity extends BaseActivity {
     private Fragment mCurrentFragment;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
-
-        initView();
-        initListener();
+    public int getLayoutId() {
+        return R.layout.activity_home;
     }
 
-    private void initView() {
+    @Override
+    public void initView() {
         fragmentNames = new ArrayList<>();
         fragmentNames.add(HomeFragment.class.getName());
         fragmentNames.add(MyWorkOrderFragment.class.getName());
@@ -46,6 +43,8 @@ public class HomeActivity extends BaseActivity {
         fragmentTag = fragmentNames.get(index);
         Fragment fragment = getFragmentByTag(fragmentTag);
         showFragment(mCurrentFragment, fragment, fragmentTag);
+
+        initListener();
     }
 
     private void initListener() {
@@ -103,4 +102,5 @@ public class HomeActivity extends BaseActivity {
         transaction.commitAllowingStateLoss();
         mCurrentFragment = to;
     }
+
 }
